@@ -1,4 +1,3 @@
-/* Layout - grid/flex/containers, header, media queries,  */
 @use "base";
 
 .container {
@@ -18,7 +17,7 @@ header {
     border-bottom: 2px solid base.$secondary-color;
 
     .logo {
-        text-transform: uppercase;
+        font-size: 25px;
         cursor: pointer;
         padding: 0.5rem;
     }
@@ -52,7 +51,7 @@ header {
         right: 0;
         width: 30vw;
         height: 100vh;
-        box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+        box-shadow: 0 0 20px rgba(0, 0, 0, .4);
         background-color: base.$background-color;
 
         nav {
@@ -75,15 +74,58 @@ header {
     .menu-overlay.active {
         display: block;
     }
+}
 
+.text-section {
+    @include base.flex-center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.image-section {
+    @include base.flex-center;
+    padding: 2rem;
+    gap: 1rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 footer {
+    @include base.flex-center;
+    padding: 3rem 1rem;
     background-color: base.$secondary-color;
+    color: base.$font-color-dark;
 }
 
 @media (max-width: 768px) {
-    .menu-overlay {
-        width: 100vw;
+    header {
+
+        .logo {
+            font-size: 20px;
+        }
+
+        .menu-btn,
+        .menu-btn-close {
+            font-size: 20px;
+        }
+
+        .menu-overlay {
+            width: 100vw;
+        }
+    }
+
+    .image-section {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    header {
+        .menu-overlay {
+            background-color: base.$background-color-dark;
+        }
     }
 }
