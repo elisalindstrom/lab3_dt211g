@@ -1,2 +1,78 @@
-/* Variabler och mixins för att slippa redundans: färgkoder i variabler, styling på texter, textstorlekar osv. */
+/* Grundläggande saker för hela webbplatsen + variabler, mixins */
+@use "sass:color";
 
+$font-stack: Helvetica, Arial, Sans-serif;
+
+/* Ljust tema */
+$background-color: #F5F5F3;
+$secondary-color: #1F1F1F;
+$font-color: #000000;
+
+/* Mörkt tema */
+$background-color-dark: $secondary-color;
+$font-color-dark: #FFFFFF;
+
+/* Mixins */
+@mixin theme-colors ($dark: false) {
+    @if $dark {
+        background-color: $background-color-dark;
+        color: $font-color-dark;
+    }
+
+    @else {
+        background-color: $background-color;
+        color: $font-color;
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bas */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @include theme-colors(false);
+    font-family: $font-stack;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+a {
+    color: $font-color;
+    text-decoration: none;
+
+    &:hover {
+        color: color.scale($font-color, $lightness: 40%);
+    }
+}
+
+button {
+    background-color: transparent;
+
+    &:hover {
+        background-color: darken($background-color, 10%);
+    }
+}
+
+.btn {
+    text-transform: uppercase;
+    align-items: center;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @include theme-colors(true);
+    }
+}

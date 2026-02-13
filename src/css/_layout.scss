@@ -1,1 +1,89 @@
-/* Layout - grid/flex/containers m.m. */
+/* Layout - grid/flex/containers, header, media queries,  */
+@use "base";
+
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    position: relative;
+    padding: 1rem;
+    border-bottom: 2px solid base.$secondary-color;
+
+    .logo {
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .menu-btn,
+    .menu-btn-close {
+        @extend .btn;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .menu-btn-close {
+        display: none;
+        position: fixed;
+        right: 1rem;
+    }
+
+    .menu-btn-close.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 30vw;
+        height: 100vh;
+        box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+        background-color: base.$background-color;
+
+        nav {
+            @include base.flex-center;
+            font-size: 16px;
+            margin-top: 6rem;
+            text-transform: uppercase;
+
+            ul {
+                list-style: none;
+
+                a {
+                    display: block;
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+
+    .menu-overlay.active {
+        display: block;
+    }
+
+}
+
+footer {
+    background-color: base.$secondary-color;
+}
+
+@media (max-width: 768px) {
+    .menu-overlay {
+        width: 100vw;
+    }
+}
