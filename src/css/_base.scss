@@ -79,7 +79,13 @@ button {
     padding: 0.5rem 1rem;
 }
 
-/* Media query färgtema */
+/* Media queries */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+}
 @media (prefers-color-scheme: dark) {
     body {
         @include theme-colors(true);
