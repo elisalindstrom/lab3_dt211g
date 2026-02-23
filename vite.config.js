@@ -19,6 +19,9 @@ export default defineConfig({
             },
             webp: {
                 quality: 70
+            },
+            png: {
+                quality: 75
             }
         })
     ]
