@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Startsida</title>
+  <title>Animering</title>
   <link rel="stylesheet" href="/src/css/main.scss">
 </head>
 
 <body>
   <div class="container">
     <header>
-      <a href="index.html" class="logo">Laboration 3</a>
+      <a href="index.html" class="logo">Laboration 4</a>
 
       <button class="btn menu-btn">
         <span>Meny</span>
@@ -36,18 +36,16 @@
 
     <main>
       <section class="text-section">
-        <h1>Välkommen till Konditoriet</h1>
-        <p>Bakverk och desserter för alla tillfällen</p>
+        <h1>Animeringar</h1>
+        <p>Huvudmeny med overlay som ändrar position och opacitet vid klick, animering av huvudrubrik med "fade-effekt",
+          animering av bakelse som rör sig över skärmen, knapp som ändrar storlek vid hover.</p>
+        <button class="btn cta-btn">Beställ här</button>
       </section>
-      <div class="image-section">
-        <picture>
-          <source srcset="/public/images/bild1.webp" type="image/webp">
-          <img src="/public/images/bild1.jpg" width="1000" height="1000" alt="Bakelse med glasyr">
-        </picture>
 
-        <picture>
-          <source srcset="/public/images/bild2.webp" type="image/webp">
-          <img src="/public/images/bild2.jpg" width="1000" height="1000" alt="Dessert med citron och grädde">
+      <div class="image-section">
+        <picture class="sliding-img">
+          <source srcset="/public/images/bakelse.webp" type="image/webp">
+          <img src="/public/images/bakelse.png" width="800" height="745" alt="Bakelse med blomblad">
         </picture>
       </div>
     </main>
